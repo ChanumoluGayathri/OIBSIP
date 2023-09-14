@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            color: #007BFF;
+        }
+
+        .input-container {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border-radius: 3px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li .task-content {
+            flex: 1;
+        }
+
+        li button {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        li button:hover {
+            background-color: #a62639;
+        }
+
+        /* Optional: Add some spacing between tasks */
+        li + li {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do App</h1>
+        <div class="input-container">
+            <input type="text" id="task" placeholder="Add a new task" required>
+            <input type="text" id="description" placeholder="Add a description">
+            <button onclick="addTask()">Add</button>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+    <script>
+        // Get references to HTML elements
+        const taskInput = document.getElementById('task');
+        const descriptionInput = document.getElementById('description');
+        const taskList = document.getElementById('taskList');
+
+        // Function to add a new task
+        // Function to add a new task with validation
+function addTask() {
+    const taskText = taskInput.value.trim();
+    const descriptionText = descriptionInput.value.trim();
+
+    // Check if the task field is empty
+    if (taskText === '') {
+        alert('Please enter a task.');
+        return; // Do not add the task if it's empty
+    }
+
+    const li = document.createElement('li');
+    li.innerHTML = `
+        <div class="task-content">
+            <div>
+                <h3>${taskText}</h3>
+                <p>${descriptionText}</p>
+            </div>
+            <div class="task-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    `;
+    taskList.appendChild(li);
+    taskInput.value = '';
+    descriptionInput.value = '';
+
+    // Add event listeners to the edit and delete buttons
+    const editButton = li.querySelector('.edit-btn');
+    const deleteButton = li.querySelector('.delete-btn');
+    editButton.addEventListener('click', () => editTask(li));
+    deleteButton.addEventListener('click', () => removeTask(li));
+}
+
+
+        // Function to remove a task
+        function removeTask(li) {
+            taskList.removeChild(li);
+        }
+
+        // Function to edit a task
+        function editTask(li) {
+            const taskContent = li.querySelector('.task-content');
+            const taskText = taskContent.querySelector('h3');
+            const descriptionText = taskContent.querySelector('p');
+
+            const newTaskText = prompt('Edit task:', taskText.textContent);
+            const newDescriptionText = prompt('Edit description:', descriptionText.textContent);
+
+            if (newTaskText !== null && newTaskText !== '') {
+                taskText.textContent = newTaskText;
+                descriptionText.textContent = newDescriptionText;
+            }
+        }
+
+        // Listen for the Enter key press
+        taskInput.addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
+                addTask();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Authentication System</title>
+    <style>
+
+form {
+    margin: 20px auto;
+    padding: 20px;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+}
+input[type="text"],
+input[type="password"] {
+    width: 70%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+button:hover { background-color: #0056b3; }
+</style>
+</head>
+<body>
+    <h1>Login Authentication System</h1>
+    
+    <!------------------------ Registration Form --------------------------------- -->
+    <h2>Register</h2>
+    <form id="registerForm">
+        <label for="regUsername">Username:</label>
+        <input type="text" id="regUsername" required><br>
+        <label for="regPassword">Password:</label>
+        <input type="password" id="regPassword" required><br>
+        <button type="button" onclick="register()">Register</button>
+        <button type="reset" >Reset</button>
+    </form>
+    
+    <!-- ---------------------------------- Login Form -------------------------------- -->
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label for="loginUsername">Username:</label>
+        <input type="text" id="loginUsername" required><br>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" required><br>
+        <button type="button" onclick="login()">Login</button>
+        <button type="reset" >Reset</button>
+    </form>
+    <script>
+    function register() {
+        const regUsername = document.getElementById("regUsername").value;
+        const regPassword = document.getElementById("regPassword").value;
+
+        if (localStorage.getItem(regUsername)) {
+            alert("Username already taken. Please choose another one.");
+            return;
+        }
+        localStorage.setItem(regUsername, regPassword);
+        alert("Registration successful!");
+    }
+    function login() {
+        const loginUsername = document.getElementById("loginUsername").value;
+        const loginPassword = document.getElementById("loginPassword").value;
+
+        const storedPassword = localStorage.getItem(loginUsername);
+
+        if (storedPassword === loginPassword) {
+            window.location.href = "secured.html";
+            } else {
+            alert("Login failed. Please check your username and password.");
+        }
+    }
+    </script>
+</body>
+</html>

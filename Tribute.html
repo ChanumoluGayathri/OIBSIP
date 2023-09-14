@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tribute_Page|</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .main{
+            height:100vh;
+            color: azure;
+            text-align: center;
+            font-size: 60px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 2px;
+            padding-top: 200px;
+        }
+        .main p{
+            background: -webkit-linear-gradient(rgb(255,160,122), rgb(233,150,122));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        img{
+            height: 45em;
+            padding-left: 150px;
+        }
+        .bio{
+            color: white;
+            height: 100vh;
+            text-align: left;
+            font-size: 30px;
+            padding: 50px;
+        }
+        p{
+            padding-left: 60px;
+        }
+        /* *************************************************************************** */
+        .container {
+            width: 1142px;
+            margin: 0 auto;
+            }
+        body {
+            background-color: #000;
+        }
+        .box {
+            display: flex;
+            -webkit-box-align: start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+        .items {
+            -ms-flex-preferred-size: calc(33.33333% - 30px);
+            flex-basis: calc(33.33333% - 30px);
+            margin: 0 15px 30px;
+            overflow: hidden;
+            border-radius: 28px;
+        }
+        .link {
+            display: block;
+            padding: 30px 20px;
+            background-color: #121212;
+            overflow: hidden;
+            position: relative;
+        }
+        .link:hover .back-color {
+            -webkit-transform: scale(10);
+            -ms-transform: scale(10);
+            transform: scale(10);
+        }
+        .title {
+            min-height: 87px;
+            margin: 0 0 25px;
+            overflow: hidden;
+            font-weight: bold;
+            font-size: 17px;
+            color: #FFF;
+            z-index: 2;
+            position: relative;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .back-color {
+            height: 128px;
+            width: 128px;
+            background-color: #f9b234;
+            z-index: 1;
+            position: absolute;
+            top: -75px;
+            right: -75px;
+            border-radius: 50%;
+            -webkit-transition: all .5s ease;
+            -o-transition: all .5s ease;
+            transition: all .5s ease;
+        }
+        .items:nth-child(2n) .back-color {
+            background-color: #952aff;
+        }
+        .items:nth-child(3n) .back-color {
+            background-color: #cd3e94;
+        }
+        .items:nth-child(4n) .back-color {
+            background-color: #4c49ea;
+        }
+        /* *************************************************************************** */
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <p>Ratan Naval Tata<br> 28 December 1937 </p>
+    </div>
+    <!---------------------------------------------------------------------------------------->
+    <div class="image">
+        <img src="https://cdn.feedingtrends.com/article-images/1597058956cover_img_f677b3f2e4.jpg" alt="tata">
+    </div>
+    <!------------------------------------------------------------------------------------------>
+    <div class="bio">
+        <p>
+        <h4> Biography </h4>
+        Ratan Naval Tata (born 28 December 1937) is an Indian industrialist, philanthropist and former chairman of Tata Sons.
+         He was a chairman of the Tata Group from 1990 to 2012, and interim chairman from October 2016 through February 2017.
+        He continues to head its charitable trusts. In 2008, he received the Padma Vibhushan, the second highest civilian honour in India,
+    after receiving the Padma Bhushan, the third highest civilian honour in 2000
+        </p>
+        <!-- /******************************************************************************/ -->
+        <div class="container">
+            <div class="box">
+        
+              <div class="items">
+                <a href="#" class="link">
+                  <div class="back-color"></div>
+          
+                  <div class="title"><h2>Padma Bhushan:</h2> <br>In 2000, Ratan Tata was
+                     honored with the Padma Bhushan, one of India's highest 
+                     civilian awards, for his exceptional contributions to industry and commerce<br>
+                     <br> <br> Honored : 2000
+                  </div>
+                </a>
+              </div>
+          
+              <div class="items">
+                <a href="#" class="link">
+                  <div class="back-color"></div>
+                  <div class="title"> <h2>Padma Vibhushan:</h2> <br> In 2008, he was 
+                    awarded the Padma Vibhushan, the second-highest civilian award in India,
+                     in recognition of his outstanding leadership in the corporate sector.<br>
+                     <br> <br> Honored : 2008
+                    </div>
+                </a>
+              </div>
+          
+              <div class="items">
+                <a href="#" class="link">
+                  <div class="back-color"></div>
+                  <div class="title"><h2>Honorary Doctorates:</h2> <br>Honered several
+                     doctorates from prestigious universities in India and abroad, 
+                     recognizing his achievements and leadership in business and philanthropy.<br>
+                     <br> <br> Honored : 2014,2022,2023 and Many
+                  </div>
+                </a>
+              </div>        
+            </div>
+        <!-- /******************************************************************************/ -->
+    </div>
+    
+    <footer>
+        <hr size="3" width="70%" color="white">
+        <h6 style="color:white; text-align: center;font-size: 20px;" >Made with &#10084;</h6>
+        <br> <br>  
+    </footer>
+</body>
+</html>
